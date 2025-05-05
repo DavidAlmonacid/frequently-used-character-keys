@@ -1,7 +1,14 @@
 // const { clipboard } = require("electron");
-const { clipboard } = require("electron");
-const { contextBridge } = require("electron/renderer");
+const { contextBridge, ipcRenderer } = require("electron/renderer");
 
-contextBridge.exposeInMainWorld("copy", {
-  toClipboard: (text) => clipboard.writeText(text, "selection"),
+contextBridge.exposeInMainWorld("electronAPI", {
+  copyToClipboard: (text) => ipcRenderer.invoke("clipboard-copy", text),
+  pasteFromClipboard: () => ipcRenderer.invoke("clipboard-paste"),
 });
+
+// const { contextBridge, ipcRenderer } = require('electron');
+
+// contextBridge.exposeInMainWorld('electronAPI', {
+//   copyToClipboard: (text) => ipcRenderer.invoke('clipboard:copy', text),
+//   pasteFromClipboard: () => ipcRenderer.invoke('clipboard:paste')
+// });

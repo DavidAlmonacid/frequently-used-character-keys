@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, clipboard, ipcMain } = require("electron");
 const path = require("node:path");
 
 function createWindow() {
@@ -9,11 +9,26 @@ function createWindow() {
     resizable: false,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
+      contextIsolation: true,
+      nodeIntegration: false,
     },
   });
 
   win.loadFile("index.html");
 }
+
+// Handle clipboard operations
+
+ipcMain.handle("clipboard-copy", (_, text) => {
+  clipboard.writeText(text);
+  return true;
+});
+
+ipcMain.handle("clipboard-paste", () => {
+  return clipboard.readText();
+});
+
+// Handle window events
 
 app.whenReady().then(() => {
   createWindow();
