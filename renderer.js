@@ -15,9 +15,6 @@ brokenKeys.forEach((char) => {
       setTimeout(() => {
         btn.textContent = char;
       }, 800);
-
-      const text = await window.electronAPI.pasteFromClipboard();
-      console.log("Clipboard content:", text);
     } catch (error) {
       console.error("Clipboard operation failed:", error);
     }
