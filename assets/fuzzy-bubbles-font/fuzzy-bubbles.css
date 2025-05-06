@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Fuzzy Bubbles";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./fuzzy-bubbles-latin-400-normal.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Fuzzy Bubbles";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./fuzzy-bubbles-latin-700-normal.woff") format("woff");
+}
