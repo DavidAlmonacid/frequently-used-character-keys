@@ -1,7 +1,7 @@
 const $container = document.getElementById("keys-container");
 
 // Function to render all buttons
-const renderButtons = () => {
+function renderButtons() {
   // Get stored characters from local storage
   const characters = window.electronAPI.getStoredCharacters() ?? [];
 
@@ -38,10 +38,10 @@ const renderButtons = () => {
 
     $container.appendChild(btn);
   });
-};
+}
 
 // Add input and save button
-const addInputForm = () => {
+function addInputForm() {
   const formContainer = document.createElement("div");
   formContainer.style.marginTop = "20px";
 
@@ -75,7 +75,7 @@ const addInputForm = () => {
   formContainer.appendChild(input);
   formContainer.appendChild(addBtn);
   document.body.appendChild(formContainer);
-};
+}
 
 // Initialize the UI
 renderButtons();
