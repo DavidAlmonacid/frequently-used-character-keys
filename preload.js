@@ -42,6 +42,7 @@ function removeCharacter(character) {
 
 contextBridge.exposeInMainWorld("electronAPI", {
   copyToClipboard: (text) => ipcRenderer.invoke("clipboard-copy", text),
+  getFromClipboard: () => ipcRenderer.invoke("clipboard-read"),
   getStoredCharacters,
   addCharacter,
   removeCharacter

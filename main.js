@@ -23,6 +23,10 @@ ipcMain.handle("clipboard-copy", (_, text) => {
   clipboard.writeText(text);
 });
 
+ipcMain.handle("clipboard-read", () => {
+  return clipboard.readText();
+});
+
 // Handle window events
 
 app.whenReady().then(() => {
