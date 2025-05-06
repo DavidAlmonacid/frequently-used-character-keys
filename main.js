@@ -1,4 +1,4 @@
-const { app, BrowserWindow, clipboard, ipcMain } = require("electron");
+const { app, BrowserWindow, clipboard, ipcMain } = require("electron/main");
 const path = require("node:path");
 
 function createWindow() {
@@ -21,11 +21,6 @@ function createWindow() {
 
 ipcMain.handle("clipboard-copy", (_, text) => {
   clipboard.writeText(text);
-  return true;
-});
-
-ipcMain.handle("clipboard-paste", () => {
-  return clipboard.readText();
 });
 
 // Handle window events
