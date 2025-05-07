@@ -2,20 +2,20 @@
 function showToast({ message, type, duration = 5000 }) {
   const toastId = `toast-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
 
-  const $container = document.createElement("div");
-  $container.id = toastId;
-  $container.className = "toast_container";
-  $container.setAttribute("type", type);
+  const $toast = document.createElement("div");
+  $toast.id = toastId;
+  $toast.className = "toast";
+  $toast.setAttribute("type", type);
 
   const $text = document.createElement("p");
   $text.innerHTML = message;
 
-  $container.appendChild($text);
-  document.body.appendChild($container);
+  $toast.appendChild($text);
+  document.body.appendChild($toast);
 
   setTimeout(() => {
-    const toast = document.getElementById(toastId);
-    toast.remove();
+    const $toastEl = document.getElementById(toastId);
+    $toastEl.remove();
   }, duration);
 }
 

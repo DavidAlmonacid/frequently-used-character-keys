@@ -9,6 +9,7 @@
   --color-background: #fffdf4;
   --color-button: #e9edc9;
   --color-black: #000;
+  --color-accent: #c1c787;
 }
 
 body {
@@ -59,7 +60,7 @@ h1 {
       border-radius: 16px;
       border: 2px solid var(--border-color);
       background-color: var(--color-button);
-      color: #003049;
+      color: var(--color-black);
       padding: 0 12px;
 
       &:disabled {
@@ -69,7 +70,7 @@ h1 {
       }
 
       &:hover {
-        background-color: #dfe5b2;
+        background-color: var(--color-accent);
       }
 
       &:active {
@@ -85,7 +86,7 @@ h1 {
 }
 
 #keys-container {
-  --keys-size: 80px;
+  --keys-size: 76px;
 
   display: grid;
   grid-template-columns: repeat(4, var(--keys-size));
@@ -101,14 +102,17 @@ h1 {
   }
 
   & .key_main {
+    font-size: 26px;
+    line-height: 1;
+    font-weight: 700;
     background-color: var(--color-button);
     border-radius: 16px;
     border: 2px solid;
     width: var(--keys-size);
     height: var(--keys-size);
-    aspect-ratio: square;
+    aspect-ratio: 1 / 1;
     box-shadow:
-      3.5px 3.5px 0 0 #c1c787,
+      3.5px 3.5px 0 0 var(--color-accent),
       4px 4px 0 1px var(--color-black);
 
     &:disabled {
@@ -126,4 +130,14 @@ h1 {
   & .key_delete {
     transform: translateX(2.5px);
   }
+}
+
+.toast {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: 2px solid;
+  border-radius: 16px;
+  padding: 16px;
+  background: aquamarine;
 }
