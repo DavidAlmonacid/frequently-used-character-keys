@@ -1,0 +1,6 @@
+- [ ] Quitar el menú por defecto
+- [ ] Arreglar el Toast (Mirar Toastify)
+- [ ] Añadir funcionalidad de borrar
+- [ ] Arreglar el botón de borrar
+- [ ] Crear ejecutable
+- [ ] Añadir caracteres reales que necesito
