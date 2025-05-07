@@ -1,4 +1,5 @@
 const { contextBridge, ipcRenderer } = require("electron/renderer");
+
 const LOCAL_STORAGE_KEY = "character-keys";
 
 function getStoredCharacters() {
