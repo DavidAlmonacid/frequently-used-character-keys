@@ -43,7 +43,7 @@ h1 {
 
     & input {
       font-size: 16px;
-      padding: 4px 10px;
+      padding: 6px 10px;
       width: 160px;
       background-color: #fefae0;
       border-radius: 9em;
@@ -61,7 +61,7 @@ h1 {
       border: 2px solid var(--border-color);
       background-color: var(--color-button);
       color: var(--color-black);
-      padding: 0 12px;
+      padding: 0 16px;
 
       &:disabled {
         pointer-events: none;
@@ -132,12 +132,28 @@ h1 {
   }
 }
 
-.toast {
-  position: absolute;
+#toast-container {
+  position: fixed;
   top: 20px;
   right: 20px;
-  border: 2px solid;
-  border-radius: 16px;
-  padding: 16px;
-  background: aquamarine;
+  width: fit-content;
+  height: fit-content;
+  display: grid;
+  gap: 5px;
+
+  & > .toast {
+    border: 2px solid;
+    border-radius: 16px;
+    padding: 14px;
+    background: aquamarine;
+
+    & p {
+      line-height: 1;
+    }
+
+    & code {
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
 }

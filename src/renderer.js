@@ -2,6 +2,8 @@
 function showToast({ message, type, duration = 5000 }) {
   const toastId = `toast-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
 
+  const $toastContainer = document.getElementById("toast-container");
+
   const $toast = document.createElement("div");
   $toast.id = toastId;
   $toast.className = "toast";
@@ -11,7 +13,7 @@ function showToast({ message, type, duration = 5000 }) {
   $text.innerHTML = message;
 
   $toast.appendChild($text);
-  document.body.appendChild($toast);
+  $toastContainer.appendChild($toast);
 
   setTimeout(() => {
     const $toastEl = document.getElementById(toastId);
