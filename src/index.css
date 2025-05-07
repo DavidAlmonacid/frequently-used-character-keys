@@ -5,8 +5,14 @@
   box-sizing: border-box;
 }
 
+:root {
+  --color-background: #fffdf4;
+  --color-button: #e9edc9;
+  --color-black: #000;
+}
+
 body {
-  background-color: #fffdf4;
+  background-color: var(--color-background);
   user-select: none;
 }
 
@@ -25,6 +31,8 @@ h1 {
 }
 
 #form-container {
+  --border-color: #7c8904;
+
   padding: 16px 0;
 
   & form {
@@ -38,20 +46,19 @@ h1 {
       width: 160px;
       background-color: #fefae0;
       border-radius: 9em;
-      border: 2px solid #7c8904;
+      border: 2px solid var(--border-color);
       text-align: center;
 
       &:focus {
         outline: 2px solid;
-        box-shadow: 0 2px 5px #ce9861;
       }
     }
 
     & button {
       font-size: 14px;
       border-radius: 16px;
-      border: 2px solid #7c8904;
-      background-color: #e9edc9;
+      border: 2px solid var(--border-color);
+      background-color: var(--color-button);
       color: #003049;
       padding: 0 12px;
 
@@ -72,15 +79,16 @@ h1 {
 
       &:focus {
         outline: 2px solid;
-        box-shadow: 0 2px 5px #ce9861;
       }
     }
   }
 }
 
 #keys-container {
+  --keys-size: 80px;
+
   display: grid;
-  grid-template-columns: repeat(4, 88px);
+  grid-template-columns: repeat(4, var(--keys-size));
   gap: 20px 32px;
   justify-content: center;
   padding: 20px 0;
@@ -93,26 +101,26 @@ h1 {
   }
 
   & .key_main {
-    background-color: #e9edc9;
+    background-color: var(--color-button);
     border-radius: 16px;
     border: 2px solid;
-    width: 88px;
-    height: 88px;
+    width: var(--keys-size);
+    height: var(--keys-size);
+    aspect-ratio: square;
     box-shadow:
       3.5px 3.5px 0 0 #c1c787,
-      4px 4px 0 1px #000;
+      4px 4px 0 1px var(--color-black);
 
-      &:disabled {
-        opacity: 0.6;
-        pointer-events: none;
-        cursor: not-allowed;
-        
-      }
+    &:disabled {
+      opacity: 0.6;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
 
-      &:active {
-        transform: translate(1px, 1px);
-        scale: 0.99;
-      }
+    &:active {
+      transform: translate(1px, 1px);
+      scale: 0.99;
+    }
   }
 
   & .key_delete {
