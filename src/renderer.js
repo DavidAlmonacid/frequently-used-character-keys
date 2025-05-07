@@ -37,10 +37,18 @@ function renderButtons() {
 
   // Render character buttons
   characters.forEach((char) => {
-    const $btn = document.createElement("button");
-    $btn.textContent = char;
+    const $keyCard = document.createElement("article");
+    $keyCard.className = "key_card";
 
-    $btn.onclick = async () => {
+    const $keyBtn = document.createElement("button");
+    $keyBtn.className = "key_main";
+    $keyBtn.textContent = char;
+
+    const $deleteBtn = document.createElement("button");
+    $deleteBtn.className = "key_delete";
+    $deleteBtn.textContent = "Delete";
+
+    $keyBtn.onclick = async () => {
       try {
         if ((await window.electronAPI.getFromClipboard()) === char) {
           showToast({
@@ -59,17 +67,19 @@ function renderButtons() {
         });
 
         // Disable the button temporarily
-        $btn.disabled = true;
+        $keyBtn.disabled = true;
 
         setTimeout(() => {
-          $btn.disabled = false;
+          $keyBtn.disabled = false;
         }, 5000);
       } catch (error) {
         console.error("Clipboard operation failed:", error);
       }
     };
 
-    $keysContainer.appendChild($btn);
+    $keyCard.appendChild($keyBtn);
+    $keyCard.appendChild($deleteBtn);
+    $keysContainer.appendChild($keyCard);
   });
 }
 
@@ -82,7 +92,6 @@ function addInputForm() {
   $input.type = "text";
   $input.placeholder = "Enter character";
   $input.maxLength = 1;
-  $input.autofocus = true;
 
   const $addBtn = document.createElement("button");
   $addBtn.type = "submit";
@@ -91,7 +100,6 @@ function addInputForm() {
 
   function rollbackInput() {
     $input.value = "";
-    $input.focus();
     $addBtn.disabled = true;
   }
 
