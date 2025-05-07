@@ -1,5 +1,83 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fffdf4;
+}
+
 body,
 button,
-input {
+input,
+code {
   font-family: "Fuzzy Bubbles", cursive;
 }
+
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  padding: 28px 0;
+  text-align: center;
+}
+
+#form-container {
+  padding: 16px 0;
+
+  & form {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+
+    & input {
+      font-size: 16px;
+      padding: 4px 10px;
+      width: 150px;
+      background-color: #fefae0;
+      border-radius: 9em;
+      border: 2px solid #d4a373;
+      text-align: center;
+
+      &:focus {
+        outline: 1px solid;
+        box-shadow: 0 2px 5px #ce9861;
+      }
+    }
+
+    & button {
+      font-size: 14px;
+      border-radius: 16px;
+      border: 2px solid #d4a373;
+      background-color: #e9edc9;
+      color: #003049;
+      padding: 0 12px;
+
+      &:hover {
+        background-color: #dfe5b2;
+      }
+
+      &:active {
+        scale: 0.95;
+        transition: scale 0.1s;
+      }
+
+      &:focus {
+        outline: 1px solid;
+        box-shadow: 0 2px 5px #ce9861;
+      }
+    }
+  }
+}
+
+#keys-container {
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+  gap: 16px;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+/* Keys color: #e9edc9 */
+/* Keys example: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpaintingvalley.com%2Fsketches%2Fsketch-of-a-computer-keyboard-38.jpg&f=1&nofb=1&ipt=8b9b6b04a89cd357f516e4b6e109315f421a8d6e1f29ea7cdf4cdef2ddf24c65 */
