@@ -87,22 +87,63 @@ function addInputForm() {
   const $addBtn = document.createElement("button");
   $addBtn.type = "submit";
   $addBtn.textContent = "Add";
+  $addBtn.disabled = true;
+
+  function rollbackInput() {
+    $input.value = "";
+    $input.focus();
+    $addBtn.disabled = true;
+  }
+
+  $input.oninput = () => {
+    $input.setCustomValidity("");
+    $input.reportValidity();
+
+    $addBtn.disabled = $input.value.length === 0;
+  };
 
   $form.onsubmit = (event) => {
     event.preventDefault();
     const newChar = $input.value.trim();
 
+    if (newChar.length === 0) {
+      rollbackInput();
+
+      showToast({
+        message: "Enter a character.",
+        type: "error",
+        duration: 2500
+      });
+
+      return;
+    }
+
     if (newChar.length > 1) {
-      alert("Please enter only one character.");
+      $input.setCustomValidity("Enter only one character.");
+      $input.reportValidity();
+      $input.maxLength = 1;
+      rollbackInput();
+
       return;
     }
 
     const characters = window.electronAPI.getStoredCharacters() ?? [];
 
-    if (newChar !== "" && !characters.includes(newChar)) {
-      window.electronAPI.addCharacter(newChar);
-      $input.value = "";
-      renderButtons();
+    if (newChar !== "") {
+      if (characters.includes(newChar)) {
+        showToast({
+          message: "Character already exists.",
+          type: "warning",
+          duration: 2500
+        });
+
+        rollbackInput();
+      } else {
+        window.electronAPI.addCharacter(newChar);
+
+        rollbackInput();
+        renderButtons();
+      }
     }
   };
 
