@@ -1,5 +1,3 @@
-const $container = document.getElementById("keys-container");
-
 // Function to show a toast
 function showToast({ message, type, duration = 5000 }) {
   const toastId = `toast-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
@@ -8,10 +6,9 @@ function showToast({ message, type, duration = 5000 }) {
   $container.id = toastId;
   $container.className = "toast_container";
   $container.setAttribute("type", type);
-  $container.style.background = "darkslategrey";
 
   const $text = document.createElement("p");
-  $text.textContent = message;
+  $text.innerHTML = message;
 
   $container.appendChild($text);
   document.body.appendChild($container);
@@ -24,18 +21,17 @@ function showToast({ message, type, duration = 5000 }) {
 
 // Function to render all buttons
 function renderButtons() {
-  // Get stored characters from local storage
   const characters = window.electronAPI.getStoredCharacters() ?? [];
 
-  // Clear existing buttons
-  $container.innerHTML = "";
+  const $keysContainer = document.getElementById("keys-container");
+  $keysContainer.innerHTML = "";
 
   // Check if there are no keys
   if (characters.length === 0) {
     const $noKeysMessage = document.createElement("p");
     $noKeysMessage.textContent = "No keys added yet.";
 
-    $container.appendChild($noKeysMessage);
+    $keysContainer.appendChild($noKeysMessage);
     return;
   }
 
@@ -43,7 +39,6 @@ function renderButtons() {
   characters.forEach((char) => {
     const $btn = document.createElement("button");
     $btn.textContent = char;
-    $btn.style.margin = "8px";
 
     $btn.onclick = async () => {
       try {
@@ -59,7 +54,7 @@ function renderButtons() {
 
         await window.electronAPI.copyToClipboard(char);
         showToast({
-          message: `Character ${char} copied successfully!`,
+          message: `Character <code>${char}</code> copied successfully!`,
           type: "success"
         });
 
@@ -74,27 +69,26 @@ function renderButtons() {
       }
     };
 
-    $container.appendChild($btn);
+    $keysContainer.appendChild($btn);
   });
 }
 
 // Add input and save button
 function addInputForm() {
-  const $formContainer = document.createElement("form");
-  $formContainer.style.marginTop = "20px";
+  const $formContainer = document.getElementById("form-container");
+  const $form = document.createElement("form");
 
   const $input = document.createElement("input");
   $input.type = "text";
-  $input.placeholder = "Enter new character";
+  $input.placeholder = "Enter character";
   $input.maxLength = 1;
   $input.autofocus = true;
 
   const $addBtn = document.createElement("button");
   $addBtn.type = "submit";
   $addBtn.textContent = "Add";
-  $addBtn.style.marginLeft = "8px";
 
-  $formContainer.onsubmit = (event) => {
+  $form.onsubmit = (event) => {
     event.preventDefault();
     const newChar = $input.value.trim();
 
@@ -112,9 +106,9 @@ function addInputForm() {
     }
   };
 
-  $formContainer.appendChild($input);
-  $formContainer.appendChild($addBtn);
-  document.body.appendChild($formContainer);
+  $form.appendChild($input);
+  $form.appendChild($addBtn);
+  $formContainer.appendChild($form);
 }
 
 // Initialize the UI
