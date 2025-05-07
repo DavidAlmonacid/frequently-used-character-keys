@@ -2,9 +2,9 @@
   "name": "keys-shortcuts-f__k",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "./src/main.js",
   "scripts": {
-    "start": "node --run lint:check && electron .",
+    "start": "node --run format:write && node --run lint:check && electron ./src/main.js",
     "format:check": "prettier -uc .",
     "format:write": "prettier -ulw .",
     "lint:check": "eslint .",
