@@ -7,6 +7,7 @@
 
 body {
   background-color: #fffdf4;
+  user-select: none;
 }
 
 body,
@@ -34,14 +35,14 @@ h1 {
     & input {
       font-size: 16px;
       padding: 4px 10px;
-      width: 150px;
+      width: 160px;
       background-color: #fefae0;
       border-radius: 9em;
-      border: 2px solid #d4a373;
+      border: 2px solid #7c8904;
       text-align: center;
 
       &:focus {
-        outline: 1px solid;
+        outline: 2px solid;
         box-shadow: 0 2px 5px #ce9861;
       }
     }
@@ -49,7 +50,7 @@ h1 {
     & button {
       font-size: 14px;
       border-radius: 16px;
-      border: 2px solid #d4a373;
+      border: 2px solid #7c8904;
       background-color: #e9edc9;
       color: #003049;
       padding: 0 12px;
@@ -70,7 +71,7 @@ h1 {
       }
 
       &:focus {
-        outline: 1px solid;
+        outline: 2px solid;
         box-shadow: 0 2px 5px #ce9861;
       }
     }
@@ -79,11 +80,42 @@ h1 {
 
 #keys-container {
   display: grid;
-  grid-template-columns: repeat(2, 100px);
-  gap: 16px;
+  grid-template-columns: repeat(4, 88px);
+  gap: 20px 32px;
   justify-content: center;
   padding: 20px 0;
-}
 
-/* Keys color: #e9edc9 */
-/* Keys example: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpaintingvalley.com%2Fsketches%2Fsketch-of-a-computer-keyboard-38.jpg&f=1&nofb=1&ipt=8b9b6b04a89cd357f516e4b6e109315f421a8d6e1f29ea7cdf4cdef2ddf24c65 */
+  & .key_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  & .key_main {
+    background-color: #e9edc9;
+    border-radius: 16px;
+    border: 2px solid;
+    width: 88px;
+    height: 88px;
+    box-shadow:
+      3.5px 3.5px 0 0 #c1c787,
+      4px 4px 0 1px #000;
+
+      &:disabled {
+        opacity: 0.6;
+        pointer-events: none;
+        cursor: not-allowed;
+        
+      }
+
+      &:active {
+        transform: translate(1px, 1px);
+        scale: 0.99;
+      }
+  }
+
+  & .key_delete {
+    transform: translateX(2.5px);
+  }
+}
