@@ -93,12 +93,33 @@ function addInputForm() {
   const $input = document.createElement("input");
   $input.type = "text";
   $input.placeholder = "Enter character";
-  $input.maxLength = 1;
+  $input.maxLength = 15;
 
   const $addBtn = document.createElement("button");
   $addBtn.type = "submit";
   $addBtn.textContent = "Add";
   $addBtn.disabled = true;
+
+  /**
+   * @param {string} userInput
+   */
+  function isSingleCharacterOrEmoji(userInput) {
+    const segementer = new Intl.Segmenter();
+    const iterator = segementer.segment(userInput)[Symbol.iterator]();
+
+    let count = 0;
+    let segmentDone = iterator.next().done;
+
+    while (segmentDone !== true) {
+      if (++count >= 2) {
+        return false;
+      }
+
+      segmentDone = iterator.next().done;
+    }
+
+    return true;
+  }
 
   function rollbackInput() {
     $input.value = "";
@@ -114,46 +135,39 @@ function addInputForm() {
 
   $form.onsubmit = (event) => {
     event.preventDefault();
-    const newChar = $input.value.trim();
+    const userInput = $input.value.trim();
 
-    if (newChar.length === 0) {
-      rollbackInput();
-
+    if (userInput.length === 0) {
       showToast({
-        message: "Enter a character.",
+        message: "Enter a character or emoji.",
         type: "error",
         duration: 2500
       });
-
+      rollbackInput();
       return;
     }
 
-    if (newChar.length > 1) {
-      $input.setCustomValidity("Enter only one character.");
+    if (!isSingleCharacterOrEmoji(userInput)) {
+      $input.setCustomValidity("Enter only one character or an emoji.");
       $input.reportValidity();
-      $input.maxLength = 1;
-      rollbackInput();
-
       return;
     }
 
     const characters = window.electronAPI.getStoredCharacters() ?? [];
 
-    if (newChar !== "") {
-      if (characters.includes(newChar)) {
-        showToast({
-          message: "Character already exists.",
-          type: "warning",
-          duration: 2500
-        });
+    if (characters.includes(userInput)) {
+      showToast({
+        message: "Character already exists.",
+        type: "warning",
+        duration: 2500
+      });
 
-        rollbackInput();
-      } else {
-        window.electronAPI.addCharacter(newChar);
+      rollbackInput();
+    } else {
+      window.electronAPI.addCharacter(userInput);
 
-        rollbackInput();
-        renderButtons();
-      }
+      rollbackInput();
+      renderButtons();
     }
   };
 

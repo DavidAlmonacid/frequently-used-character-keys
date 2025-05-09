@@ -1,6 +1,5 @@
-- [ ] Permitir agregar emojis
-- [ ] Quitar el menú por defecto
-- [ ] Arreglar el Toast (Mirar Toastify)
+- [x] Permitir agregar emojis
+- [ ] Arreglar el Toast
 - [ ] Añadir funcionalidad de borrar
 - [ ] Arreglar el botón de borrar
 - [ ] Quitar el menú por defecto
