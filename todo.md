@@ -1,4 +1,5 @@
 - [x] Permitir agregar emojis
+- [ ] Arreglar el texto que indica que no hay caracteres agregados
 - [ ] Arreglar el Toast
 - [ ] Añadir funcionalidad de borrar
 - [ ] Arreglar el botón de borrar
