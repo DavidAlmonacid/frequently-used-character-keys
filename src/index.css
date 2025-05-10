@@ -153,8 +153,25 @@ h1 {
   & > .toast {
     border: 2px solid;
     border-radius: 16px;
-    padding: 14px;
-    background: aquamarine;
+    padding: 13px 15px;
+
+    &[type="success"] {
+      background: linear-gradient(90deg, #b6f5c6 0%, #6ee7b7 100%);
+      border-color: #22c55e;
+      color: #14532d;
+    }
+
+    &[type="warning"] {
+      background: linear-gradient(90deg, #fff7ae 0%, #ffd580 100%);
+      border-color: #f59e42;
+      color: #7c4700;
+    }
+
+    &[type="error"] {
+      background: linear-gradient(90deg, #ffb4b4 0%, #e78383 100%);
+      border-color: #dc2626;
+      color: #521111;
+    }
 
     & p {
       line-height: 1;
