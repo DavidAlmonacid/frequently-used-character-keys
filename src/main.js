@@ -1,10 +1,16 @@
-const { app, BrowserWindow, clipboard, ipcMain } = require("electron/main");
+const {
+  app,
+  BrowserWindow,
+  clipboard,
+  ipcMain,
+  Menu
+} = require("electron/main");
 const path = require("node:path");
 
 function createWindow() {
   const win = new BrowserWindow({
     width: 550,
-    height: 550,
+    height: 600,
     center: true,
     resizable: false,
     webPreferences: {
@@ -16,6 +22,8 @@ function createWindow() {
 
   win.loadFile("index.html");
 }
+
+Menu.setApplicationMenu(null);
 
 // Handle clipboard operations
 

@@ -3,6 +3,6 @@
 - [x] Arreglar el Toast
 - [x] Añadir funcionalidad de borrar
 - [x] Arreglar el botón de borrar
-- [ ] Quitar el menú por defecto
+- [x] Quitar el menú por defecto
 - [ ] Crear ejecutable
 - [ ] Añadir caracteres reales que necesito
