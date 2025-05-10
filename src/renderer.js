@@ -1,5 +1,5 @@
 // Function to show a toast
-function showToast({ message, type, duration = 5000 }) {
+function showToast({ message, type, duration = 5_000 }) {
   const toastId = `toast-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
 
   const $toastContainer = document.getElementById("toast-container");
