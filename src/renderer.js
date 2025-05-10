@@ -46,10 +46,6 @@ function renderButtons() {
     $keyBtn.className = "key_main";
     $keyBtn.textContent = char;
 
-    const $deleteBtn = document.createElement("button");
-    $deleteBtn.className = "key_delete";
-    $deleteBtn.textContent = "Delete";
-
     $keyBtn.onclick = async () => {
       try {
         if ((await window.electronAPI.getFromClipboard()) === char) {
@@ -77,6 +73,20 @@ function renderButtons() {
       } catch (error) {
         console.error("Clipboard operation failed:", error);
       }
+    };
+
+    const $deleteBtn = document.createElement("button");
+    $deleteBtn.className = "key_delete";
+    $deleteBtn.textContent = "Delete";
+
+    $deleteBtn.onclick = () => {
+      window.electronAPI.removeCharacter(char);
+      renderButtons();
+      showToast({
+        message: `Character <code>${char}</code> deleted.`,
+        type: "warning",
+        duration: 2000
+      });
     };
 
     $keyCard.appendChild($keyBtn);

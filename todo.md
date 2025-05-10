@@ -1,7 +1,7 @@
 - [x] Permitir agregar emojis
 - [x] Arreglar el texto que indica que no hay caracteres agregados
 - [x] Arreglar el Toast
-- [ ] Añadir funcionalidad de borrar
+- [x] Añadir funcionalidad de borrar
 - [ ] Arreglar el botón de borrar
 - [ ] Quitar el menú por defecto
 - [ ] Crear ejecutable
