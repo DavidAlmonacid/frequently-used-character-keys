@@ -2,7 +2,7 @@
 - [x] Arreglar el texto que indica que no hay caracteres agregados
 - [x] Arreglar el Toast
 - [x] Añadir funcionalidad de borrar
-- [ ] Arreglar el botón de borrar
+- [x] Arreglar el botón de borrar
 - [ ] Quitar el menú por defecto
 - [ ] Crear ejecutable
 - [ ] Añadir caracteres reales que necesito

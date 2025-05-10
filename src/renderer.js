@@ -77,7 +77,6 @@ function renderButtons() {
 
     const $deleteBtn = document.createElement("button");
     $deleteBtn.className = "key_delete";
-    $deleteBtn.textContent = "Delete";
 
     $deleteBtn.onclick = () => {
       window.electronAPI.removeCharacter(char);
@@ -89,7 +88,11 @@ function renderButtons() {
       });
     };
 
+    const $trashIcon = new Image(20, 20);
+    $trashIcon.src = "./assets/icons/trash.svg";
+
     $keyCard.appendChild($keyBtn);
+    $deleteBtn.appendChild($trashIcon);
     $keyCard.appendChild($deleteBtn);
     $keysContainer.appendChild($keyCard);
   });
