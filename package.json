@@ -1,19 +1,29 @@
 {
   "name": "keys-shortcuts-f__k",
   "version": "1.0.0",
-  "description": "",
+  "description": "Gestor de atajos de teclado y caracteres especiales para Linux Desktop.",
   "main": "./src/main.js",
   "scripts": {
-    "start": "node --run format:write && node --run lint:check && electron ./src/main.js",
+    "start": "electron-forge start",
     "format:check": "prettier -uc .",
     "format:write": "prettier -ulw .",
     "lint:check": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "keywords": [],
   "author": "David Almonacid",
   "license": "ISC",
   "devDependencies": {
+    "@electron-forge/cli": "^7.8.1",
+    "@electron-forge/maker-deb": "^7.8.1",
+    "@electron-forge/maker-rpm": "^7.8.1",
+    "@electron-forge/maker-squirrel": "^7.8.1",
+    "@electron-forge/maker-zip": "^7.8.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.8.1",
+    "@electron-forge/plugin-fuses": "^7.8.1",
+    "@electron/fuses": "^1.8.0",
     "@eslint/js": "^9.26.0",
     "electron": "36.1.0",
     "eslint": "^9.26.0",
@@ -21,5 +31,8 @@
     "eslint-plugin-prettier": "5.4.0",
     "globals": "^16.0.0",
     "prettier": "3.5.3"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.1"
   }
 }

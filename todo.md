@@ -4,5 +4,5 @@
 - [x] Añadir funcionalidad de borrar
 - [x] Arreglar el botón de borrar
 - [x] Quitar el menú por defecto
-- [ ] Crear ejecutable
-- [ ] Añadir caracteres reales que necesito
+- [x] Agregar icono de la aplicación que sea compatible con Linux Debian Ubuntu Desktop
+- [x] Crear ejecutable

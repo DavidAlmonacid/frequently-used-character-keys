@@ -3,11 +3,19 @@ const {
   BrowserWindow,
   clipboard,
   ipcMain,
-  Menu
-} = require("electron/main");
+  nativeImage
+} = require("electron");
 const path = require("node:path");
 
 function createWindow() {
+  const isDev = !app.isPackaged;
+
+  const iconPath = isDev
+    ? path.join(__dirname, "..", "build", "icons", "app.png")
+    : path.join(process.resourcesPath, "build", "icons", "app.png");
+
+  const appIcon = nativeImage.createFromPath(iconPath);
+
   const win = new BrowserWindow({
     width: 550,
     height: 600,
@@ -17,13 +25,12 @@ function createWindow() {
       preload: path.join(__dirname, "preload.js"),
       contextIsolation: true,
       nodeIntegration: false
-    }
+    },
+    icon: appIcon
   });
 
-  win.loadFile("index.html");
+  win.loadFile(path.join(__dirname, "index.html"));
 }
-
-Menu.setApplicationMenu(null);
 
 // Handle clipboard operations
 
