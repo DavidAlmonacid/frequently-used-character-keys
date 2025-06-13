@@ -2,11 +2,11 @@
 
 ## Setup
 
-- [ ] Add eslint
+- [x] Add eslint
 
-- [ ] Add prettier and plugin for eslint
+- [x] Add prettier and plugin for eslint
 
-- [ ] Add tailwindcss and plugin for prettier
+- [x] Add tailwindcss and plugin for prettier
 
 ## Requirements
 

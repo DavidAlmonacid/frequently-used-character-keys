@@ -2,3 +2,4 @@
 *lock.*
 !*lock.*s
 !*lock.*sx
+src-tauri/

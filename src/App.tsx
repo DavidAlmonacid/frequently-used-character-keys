@@ -11,11 +11,11 @@ function App() {
   }
 
   return (
-    <main class="container">
+    <main className="container">
       <h1>Welcome to Tauri + Preact</h1>
 
       <form
-        class="row"
+        className="row"
         onSubmit={(e) => {
           e.preventDefault();
           greet();
