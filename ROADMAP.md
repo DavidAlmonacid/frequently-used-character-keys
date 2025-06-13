@@ -38,8 +38,6 @@
 
 - [x] Add functionality to the native delete button
 
-- [ ] Add styles to the modal
-
 - [ ] Add toast to confirm:
 
   - [] Successful copy
