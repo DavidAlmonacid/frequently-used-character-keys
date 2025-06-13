@@ -1,4 +1,6 @@
+import "@fontsource-variable/space-grotesk";
 import { render } from "preact";
+
 import App from "./App";
 import "./main.css";
 

@@ -18,7 +18,7 @@
   - [x] The character must be unique
   - [x] The character must not be empty
 
-- [ ] Give styles to the form
+- [x] Give styles to the form
 
 - [ ] Show a list of the characters added
 
