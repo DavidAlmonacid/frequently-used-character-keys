@@ -12,11 +12,11 @@
 
 - [x] Connect the app to the database
 
-- [ ] Create a form to add a character following the requirements:
+- [x] Create a form to add a character following the requirements:
 
-  - [ ] The user must add a single character or emoji
-  - [ ] The character must be unique
-  - [ ] The character must not be empty
+  - [x] The user must add a single character or emoji
+  - [x] The character must be unique
+  - [x] The character must not be empty
 
 - [ ] Give styles to the form
 
