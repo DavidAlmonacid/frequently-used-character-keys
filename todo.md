@@ -1,8 +1,0 @@
-- [x] Permitir agregar emojis
-- [x] Arreglar el texto que indica que no hay caracteres agregados
-- [x] Arreglar el Toast
-- [x] Añadir funcionalidad de borrar
-- [x] Arreglar el botón de borrar
-- [x] Quitar el menú por defecto
-- [x] Agregar icono de la aplicación que sea compatible con Linux Debian Ubuntu Desktop
-- [x] Crear ejecutable

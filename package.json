@@ -1,38 +1,23 @@
 {
-  "name": "keys-shortcuts-f__k",
-  "version": "1.0.0",
-  "description": "Gestor de atajos de teclado y caracteres especiales para Linux Desktop.",
-  "main": "./src/main.js",
+  "name": "frequently-used-character-keys",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
   "scripts": {
-    "start": "electron-forge start",
-    "format:check": "prettier -uc .",
-    "format:write": "prettier -ulw .",
-    "lint:check": "eslint .",
-    "lint:fix": "eslint --fix .",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
-  },
-  "keywords": [],
-  "author": "David Almonacid",
-  "license": "ISC",
-  "devDependencies": {
-    "@electron-forge/cli": "^7.8.1",
-    "@electron-forge/maker-deb": "^7.8.1",
-    "@electron-forge/maker-rpm": "^7.8.1",
-    "@electron-forge/maker-squirrel": "^7.8.1",
-    "@electron-forge/maker-zip": "^7.8.1",
-    "@electron-forge/plugin-auto-unpack-natives": "^7.8.1",
-    "@electron-forge/plugin-fuses": "^7.8.1",
-    "@electron/fuses": "^1.8.0",
-    "@eslint/js": "^9.26.0",
-    "electron": "36.1.0",
-    "eslint": "^9.26.0",
-    "eslint-config-prettier": "10.1.2",
-    "eslint-plugin-prettier": "5.4.0",
-    "globals": "^16.0.0",
-    "prettier": "3.5.3"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.1"
+    "preact": "^10.26.9",
+    "@tauri-apps/api": "^2.5.0",
+    "@tauri-apps/plugin-opener": "^2.2.7"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.1",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "@tauri-apps/cli": "^2.5.0"
   }
 }
