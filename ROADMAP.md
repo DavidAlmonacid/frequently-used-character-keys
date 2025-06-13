@@ -32,7 +32,7 @@
 
 - [x] Give styles to the delete button
 
-- [ ] Add MAIN functionality, ALLOW to copy the button text to the clipboard when clicked
+- [x] Add MAIN functionality, ALLOW to copy the button text to the clipboard when clicked
 
 - [ ] Add functionality to the delete button
 

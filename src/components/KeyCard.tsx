@@ -1,3 +1,5 @@
+import { invoke } from "@tauri-apps/api/core";
+
 import trashIcon from "../assets/trash.svg";
 
 type KeyCardProps = {
@@ -6,8 +8,8 @@ type KeyCardProps = {
 };
 
 export function KeyCard({ character, onDeleteClick }: KeyCardProps) {
-  const handleCopy = (character: string) => {
-    throw new Error("Function not implemented.");
+  const handleCopy = async (character: string) => {
+    await invoke("copy_to_clipboard", { character });
   };
 
   return (
