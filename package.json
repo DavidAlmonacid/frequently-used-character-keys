@@ -14,9 +14,10 @@
     "lint:fix": "eslint --fix ."
   },
   "dependencies": {
-    "preact": "^10.26.9",
     "@tauri-apps/api": "^2.5.0",
-    "@tauri-apps/plugin-opener": "^2.2.7"
+    "@tauri-apps/plugin-opener": "^2.2.7",
+    "@tauri-apps/plugin-sql": "~2",
+    "preact": "^10.26.9"
   },
   "devDependencies": {
     "@eslint/js": "^9.28.0",

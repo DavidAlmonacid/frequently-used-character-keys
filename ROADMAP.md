@@ -10,7 +10,7 @@
 
 ## Requirements
 
-- [ ] Connect the app to the database
+- [x] Connect the app to the database
 
 - [ ] Create a form to add a character following the requirements:
 
