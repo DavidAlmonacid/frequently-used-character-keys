@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import type { JSX } from "preact/jsx-runtime";
 
+import { KeyCard } from "./components/KeyCard";
 import { addCharacter, getAllCharacters } from "./lib/db";
 import { isSingleCharacterOrEmoji } from "./lib/validateInput";
 
 function App() {
   const [characters, setCharacters] = useState<Array<Character>>([]);
   const [inputValue, setInputValue] = useState("");
+  const [pendingDeleteCharacter, setPendingDeleteCharacter] =
+    useState<Character | null>(null);
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -65,6 +68,10 @@ function App() {
     setInputValue(event.currentTarget.value);
   };
 
+  const handleDeleteClick = (character: Character) => {
+    setPendingDeleteCharacter(character);
+  };
+
   return (
     <main>
       <h1 className="py-7 text-center text-3xl font-bold">
@@ -94,6 +101,22 @@ function App() {
           Add
         </button>
       </form>
+
+      <section className="grid grid-cols-(--grid-cols) justify-center gap-x-8 gap-y-5 py-5">
+        {characters.length > 0 ? (
+          characters.map((character) => (
+            <KeyCard
+              key={character.id}
+              character={character.character}
+              onDeleteClick={() => handleDeleteClick(character)}
+            />
+          ))
+        ) : (
+          <p className="col-span-full justify-self-center">
+            No keys added yet.
+          </p>
+        )}
+      </section>
     </main>
   );
 }

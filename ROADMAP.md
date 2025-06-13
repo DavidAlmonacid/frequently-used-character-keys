@@ -20,17 +20,17 @@
 
 - [x] Give styles to the form
 
-- [ ] Show a list of the characters added
+- [x] Show a list for the added characters
 
-- [ ] Give styles to the list
+- [x] Give styles to the list
 
-- [ ] Add a button to copy the character text to the clipboard
+- [x] Add a button to copy the character text to the clipboard
 
-- [ ] Give styles to the copy button
+- [x] Give styles to the copy button
 
-- [ ] Add a button to delete the character
+- [x] Add a button to delete the character
 
-- [ ] Give styles to the delete button
+- [x] Give styles to the delete button
 
 - [ ] Add MAIN functionality, ALLOW to copy the button text to the clipboard when clicked
 
