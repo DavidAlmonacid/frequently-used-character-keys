@@ -7,7 +7,11 @@ export async function getAllCharacters(): Promise<Array<Character>> {
 }
 
 export async function addCharacter(character: string): Promise<QueryResult> {
-  return await db.execute("INSERT INTO characters (character) VALUES ($1)", [
+  return await db.execute("INSERT INTO characters (character) VALUES ($1);", [
     character
   ]);
+}
+
+export async function deleteCharacter(id: number) {
+  return await db.execute("DELETE FROM characters WHERE id = $1;", [id]);
 }

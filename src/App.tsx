@@ -5,15 +5,13 @@ import { KeyCard } from "./components/KeyCard";
 import { addCharacter, getAllCharacters } from "./lib/db";
 import { isSingleCharacterOrEmoji } from "./lib/validateInput";
 
-function App() {
+export default function App() {
   const [characters, setCharacters] = useState<Array<Character>>([]);
   const [inputValue, setInputValue] = useState("");
-  const [pendingDeleteCharacter, setPendingDeleteCharacter] =
-    useState<Character | null>(null);
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const fetcCharacters = async () => {
+  const fetchCharacters = async () => {
     try {
       const response = await getAllCharacters();
       setCharacters(response);
@@ -25,7 +23,7 @@ function App() {
   };
 
   useEffect(() => {
-    fetcCharacters();
+    fetchCharacters();
   }, []);
 
   const handleSubmit = async (event: Event) => {
@@ -55,7 +53,7 @@ function App() {
       console.error("Character already exists.");
     } else {
       await addCharacter(userInput);
-      await fetcCharacters();
+      await fetchCharacters();
     }
 
     setInputValue("");
@@ -66,10 +64,6 @@ function App() {
     inputRef.current?.reportValidity();
 
     setInputValue(event.currentTarget.value);
-  };
-
-  const handleDeleteClick = (character: Character) => {
-    setPendingDeleteCharacter(character);
   };
 
   return (
@@ -107,8 +101,8 @@ function App() {
           characters.map((character) => (
             <KeyCard
               key={character.id}
-              character={character.character}
-              onDeleteClick={() => handleDeleteClick(character)}
+              character={character}
+              onRefresh={fetchCharacters}
             />
           ))
         ) : (
@@ -120,5 +114,3 @@ function App() {
     </main>
   );
 }
-
-export default App;

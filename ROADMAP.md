@@ -34,9 +34,9 @@
 
 - [x] Add MAIN functionality, ALLOW to copy the button text to the clipboard when clicked
 
-- [ ] Add functionality to the delete button
+- [x] Show native dialog when the trash button is clicked to confirm the deletion of the character
 
-- [ ] Show modal when the delete button is clicked to confirm the deletion of the character
+- [x] Add functionality to the native delete button
 
 - [ ] Add styles to the modal
 
