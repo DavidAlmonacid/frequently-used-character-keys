@@ -50,6 +50,8 @@
 
 - [ ] Improve the font weight of the character in the toast
 
+- [ ] Improve composition by separating some parts into its own component
+
 - [ ] (Optional) Try to add a CLI to the app
 
 - [ ] Add app desktop icon
