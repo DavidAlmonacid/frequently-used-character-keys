@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "frequently-used-character-keys",
+  "productName": "Frequently Used Character Keys",
   "version": "0.1.0",
   "identifier": "com.frequently-used-character-keys.app",
   "build": {
