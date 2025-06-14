@@ -52,8 +52,8 @@
 
 - [x] Improve composition by separating some parts into its own component and custom hooks
 
-- [ ] (Optional) Try to add a CLI to the app
+- ~~[ ] (Optional) Try to add a CLI to the app~~
 
-- [ ] Add app desktop icon
+- [x] Add app desktop icon
 
-- [ ] Create an executable file for the app
+- [x] Create an executable file for the app
