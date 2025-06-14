@@ -43,12 +43,17 @@ export function Form({ characters, onRefresh }: FormProps) {
       toast.warning(<ToastMessage message="Character already exists" />, {
         duration: 2500
       });
-    } else {
-      await addCharacter(userInput);
-      await onRefresh();
+      return;
     }
 
-    setInputValue("");
+    try {
+      await addCharacter(userInput);
+      await onRefresh();
+    } catch (error) {
+      throw new Error(`Something went wrong. Cause: ${error}`);
+    } finally {
+      setInputValue("");
+    }
   };
 
   const handleInput = (event: JSX.TargetedEvent<HTMLInputElement>) => {

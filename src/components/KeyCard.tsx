@@ -50,12 +50,16 @@ export function KeyCard({ character, onRefresh }: KeyCardProps) {
       return;
     }
 
-    await deleteCharacter(id);
-    await onRefresh();
+    try {
+      await deleteCharacter(id);
+      await onRefresh();
 
-    toast.info(
-      <ToastMessage message="You've deleted the character" character={char} />
-    );
+      toast.info(
+        <ToastMessage message="You've deleted the character" character={char} />
+      );
+    } catch (error) {
+      throw new Error(`Something went wrong. Cause: ${error}`);
+    }
   };
 
   return (
