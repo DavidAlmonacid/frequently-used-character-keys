@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import type { JSX } from "preact/jsx-runtime";
+import { Toaster, toast } from "sonner";
 
 import { KeyCard } from "./components/KeyCard";
 import { addCharacter, getAllCharacters } from "./lib/db";
@@ -32,7 +33,9 @@ export default function App() {
     const userInput = inputValue.trim();
 
     if (userInput.length === 0) {
-      console.error("Enter a character or emoji.");
+      toast.error(<p className="text-sm">Enter a character or emoji.</p>, {
+        duration: 2500
+      });
       setInputValue("");
       return;
     }
@@ -50,7 +53,9 @@ export default function App() {
     });
 
     if (characterExists) {
-      console.error("Character already exists.");
+      toast.warning(<p className="text-sm">Character already exists.</p>, {
+        duration: 2500
+      });
     } else {
       await addCharacter(userInput);
       await fetchCharacters();
@@ -111,6 +116,8 @@ export default function App() {
           </p>
         )}
       </section>
+
+      <Toaster position="top-right" visibleToasts={5} richColors />
     </main>
   );
 }

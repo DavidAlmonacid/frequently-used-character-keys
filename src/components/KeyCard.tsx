@@ -1,5 +1,6 @@
 import { invoke } from "@tauri-apps/api/core";
 import { confirm } from "@tauri-apps/plugin-dialog";
+import { toast } from "sonner";
 
 import { deleteCharacter } from "../lib/db";
 
@@ -14,7 +15,34 @@ export function KeyCard({ character, onRefresh }: KeyCardProps) {
   const { id, character: char } = character;
 
   const handleCopy = async (character: string) => {
-    await invoke("copy_to_clipboard", { character });
+    try {
+      if ((await invoke<string>("read_from_clipboard")) === character) {
+        toast.warning(
+          <p className="text-sm">
+            Character{" "}
+            <code className="rounded-sm bg-yellow-200/80 px-1 py-[3px] text-base/tight">
+              {character}
+            </code>{" "}
+            already in clipboard!
+          </p>
+        );
+        return;
+      }
+
+      await invoke("copy_to_clipboard", { character });
+
+      toast.success(
+        <p className="text-sm">
+          Character{" "}
+          <code className="rounded-sm bg-yellow-200/80 px-1 py-[3px] text-base/tight">
+            {character}
+          </code>{" "}
+          copied successfully!
+        </p>
+      );
+    } catch (error) {
+      throw new Error(`Error copying to clipboard. Cause: ${error}`);
+    }
   };
 
   const handleDelete = async () => {
@@ -29,6 +57,16 @@ export function KeyCard({ character, onRefresh }: KeyCardProps) {
 
     await deleteCharacter(id);
     await onRefresh();
+
+    toast.info(
+      <p className="text-sm">
+        Character{" "}
+        <code className="rounded-sm bg-yellow-200/80 px-1 py-[3px] text-base/tight">
+          {char}
+        </code>{" "}
+        deleted.
+      </p>
+    );
   };
 
   return (
