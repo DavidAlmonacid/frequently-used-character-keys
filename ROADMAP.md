@@ -38,11 +38,17 @@
 
 - [x] Add functionality to the native delete button
 
-- [ ] Add toast to confirm:
+- [x] Add toast to confirm:
 
-  - [] Successful copy
-  - [] There's no text in the input field
-  - [] The character already exists
+  - [x] The character already exists in clipboard
+  - [x] Successful copied to clipboard
+  - [x] The character was deleted successfully
+  - [x] There's no text in the input field
+  - [x] The character already exists in the database
+
+- [ ] Separate the toast content into a component to be reusable
+
+- [ ] Improve the font weight of the character in the toast
 
 - [ ] (Optional) Try to add a CLI to the app
 
