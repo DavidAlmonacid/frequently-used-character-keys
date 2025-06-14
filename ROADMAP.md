@@ -52,4 +52,6 @@
 
 - [ ] (Optional) Try to add a CLI to the app
 
+- [ ] Add app desktop icon
+
 - [ ] Create an executable file for the app
