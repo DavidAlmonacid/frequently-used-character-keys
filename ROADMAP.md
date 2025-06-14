@@ -50,7 +50,7 @@
 
 - [x] Improve the toast styles
 
-- [ ] Improve composition by separating some parts into its own component
+- [x] Improve composition by separating some parts into its own component and custom hooks
 
 - [ ] (Optional) Try to add a CLI to the app
 
