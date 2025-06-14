@@ -3,6 +3,7 @@ import type { JSX } from "preact/jsx-runtime";
 import { Toaster, toast } from "sonner";
 
 import { KeyCard } from "./components/KeyCard";
+import { ToastMessage } from "./components/ToastMessage";
 import { addCharacter, getAllCharacters } from "./lib/db";
 import { isSingleCharacterOrEmoji } from "./lib/validateInput";
 
@@ -33,7 +34,7 @@ export default function App() {
     const userInput = inputValue.trim();
 
     if (userInput.length === 0) {
-      toast.error(<p className="text-sm">Enter a character or emoji.</p>, {
+      toast.error(<ToastMessage message="Enter a character or emoji" />, {
         duration: 2500
       });
       setInputValue("");
@@ -53,7 +54,7 @@ export default function App() {
     });
 
     if (characterExists) {
-      toast.warning(<p className="text-sm">Character already exists.</p>, {
+      toast.warning(<ToastMessage message="Character already exists" />, {
         duration: 2500
       });
     } else {

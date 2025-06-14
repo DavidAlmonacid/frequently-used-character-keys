@@ -46,9 +46,9 @@
   - [x] There's no text in the input field
   - [x] The character already exists in the database
 
-- [ ] Separate the toast content into a component to be reusable
+- [x] Separate the toast content into a component to be reusable
 
-- [ ] Improve the font weight of the character in the toast
+- [x] Improve the toast styles
 
 - [ ] Improve composition by separating some parts into its own component
 

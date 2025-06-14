@@ -3,6 +3,7 @@ import { confirm } from "@tauri-apps/plugin-dialog";
 import { toast } from "sonner";
 
 import { deleteCharacter } from "../lib/db";
+import { ToastMessage } from "./ToastMessage";
 
 import trashIcon from "../assets/trash.svg";
 
@@ -18,13 +19,10 @@ export function KeyCard({ character, onRefresh }: KeyCardProps) {
     try {
       if ((await invoke<string>("read_from_clipboard")) === character) {
         toast.warning(
-          <p className="text-sm">
-            Character{" "}
-            <code className="rounded-sm bg-yellow-200/80 px-1 py-[3px] text-base/tight">
-              {character}
-            </code>{" "}
-            already in clipboard!
-          </p>
+          <ToastMessage
+            message="You've already copied the character"
+            character={character}
+          />
         );
         return;
       }
@@ -32,13 +30,10 @@ export function KeyCard({ character, onRefresh }: KeyCardProps) {
       await invoke("copy_to_clipboard", { character });
 
       toast.success(
-        <p className="text-sm">
-          Character{" "}
-          <code className="rounded-sm bg-yellow-200/80 px-1 py-[3px] text-base/tight">
-            {character}
-          </code>{" "}
-          copied successfully!
-        </p>
+        <ToastMessage
+          message="You've successfully copied the character"
+          character={character}
+        />
       );
     } catch (error) {
       throw new Error(`Error copying to clipboard. Cause: ${error}`);
@@ -59,13 +54,7 @@ export function KeyCard({ character, onRefresh }: KeyCardProps) {
     await onRefresh();
 
     toast.info(
-      <p className="text-sm">
-        Character{" "}
-        <code className="rounded-sm bg-yellow-200/80 px-1 py-[3px] text-base/tight">
-          {char}
-        </code>{" "}
-        deleted.
-      </p>
+      <ToastMessage message="You've deleted the character" character={char} />
     );
   };
 
