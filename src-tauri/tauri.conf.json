@@ -12,9 +12,10 @@
   "app": {
     "windows": [
       {
-        "title": "frequently-used-character-keys",
-        "width": 800,
-        "height": 600
+        "title": "Frequently Used Character Keys",
+        "width": 575,
+        "height": 700,
+        "center": true
       }
     ],
     "security": {
@@ -23,7 +24,7 @@
   },
   "bundle": {
     "active": true,
-    "targets": "all",
+    "targets": "deb",
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",
