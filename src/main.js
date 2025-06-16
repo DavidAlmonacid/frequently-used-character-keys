@@ -17,8 +17,8 @@ function createWindow() {
   const appIcon = nativeImage.createFromPath(iconPath);
 
   const win = new BrowserWindow({
-    width: 550,
-    height: 600,
+    width: 575,
+    height: 700,
     center: true,
     resizable: false,
     webPreferences: {
